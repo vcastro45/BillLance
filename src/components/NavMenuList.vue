@@ -5,6 +5,11 @@
                  :to="{ name: 'CRA' }">
       Activity
     </v-list-item>
+    <v-list-item prepend-icon="mdi-chart-timeline-variant-shimmer"
+                 active-color="primary"
+                 :to="{ name: 'reports' }">
+      Reports
+    </v-list-item>
     <v-list-item prepend-icon="mdi-file-multiple"
                  active-color="primary"
                  :to="{ name: 'contracts' }">

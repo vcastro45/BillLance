@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import CRA from '@/views/CRA.vue'
+import Reports from '@/views/Reports.vue'
 import Contracts from '@/views/Contracts.vue'
 import Settings from '@/views/Settings.vue'
 
@@ -13,6 +14,11 @@ const routes = [
     path: '/cra',
     name: 'CRA',
     component: CRA
+  },
+  {
+    path: '/reports',
+    name: 'reports',
+    component: Reports
   },
   {
     path: '/contracts',

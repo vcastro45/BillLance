@@ -1,17 +1,8 @@
 <template>
-  <v-container>
+  <v-container class="CRA">
     <v-row align="center">
       <v-col cols="auto">
-        <v-select v-model="period.month"
-                  hide-details
-                  :items="months"
-                  label="Month"/>
-      </v-col>
-      <v-col cols="auto">
-        <v-text-field v-model.number="period.year"
-                      hide-details
-                      type="number"
-                      label="Year"/>
+        <month-picker v-model="period"/>
       </v-col>
       <v-spacer/>
       <v-col cols="auto">
@@ -99,6 +90,7 @@ import { SelectResponse } from '@/entities'
 import Contract from '@/entities/contract'
 import { SupabaseClient } from '@supabase/supabase-js'
 import CRARow from '@/entities/CRARow'
+import MonthPicker from '@/components/MonthPicker.vue'
 
 const supabase = inject('supabase') as SupabaseClient
 
@@ -107,20 +99,6 @@ const period = ref({
   month: now.getMonth() + 1,
   year: now.getFullYear()
 })
-const months = [
-  { value: 1, title: 'January' },
-  { value: 2, title: 'February' },
-  { value: 3, title: 'March' },
-  { value: 4, title: 'April' },
-  { value: 5, title: 'May' },
-  { value: 6, title: 'June' },
-  { value: 7, title: 'July' },
-  { value: 8, title: 'August' },
-  { value: 9, title: 'September' },
-  { value: 10, title: 'October' },
-  { value: 11, title: 'November' },
-  { value: 12, title: 'December' }
-]
 const loading = ref<boolean>(false)
 const contracts = ref<Contract[]>([])
 const selectedContracts = ref<Contract[]>([])
